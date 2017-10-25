@@ -1,0 +1,26 @@
+clear all
+y=[1 10 2 3 5 4 55];
+x=[1 23 3 5 2 52 3];
+subplot(3,2,1);
+stem(x);
+title('Signal X');
+subplot(3,2,2);
+stem(y);
+title('Signal Y');
+yt=fft(y);
+xt=fft(x);
+subplot(3,2,3);
+stem(yt);
+title('fourier transform of Y');
+subplot(3,2,4);
+stem(xt);
+title('fourier transform of X');
+ynew=2.*y+3.*x;
+ynewft=fft(ynew);
+subplot(3,2,5);
+stem(ynewft);
+title('fourier transform of 2*y+3*x');
+ytemp=2.*yt+3.*xt;
+subplot(3,2,6);
+stem(ytemp);
+title('2*fourier transform(y)+3*fourier transform(x)');
