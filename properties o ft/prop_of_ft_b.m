@@ -1,14 +1,15 @@
 clear all
 y=[1 10 2 3 5 4 55];
 x=[1 23 3 5 2 52 3];
+npoint = 20;
 subplot(3,2,1);
 stem(x);
 title('Signal X');
 subplot(3,2,2);
 stem(y);
 title('Signal Y');
-yt=fft(y);
-xt=fft(x);
+yt=fft(y,npoint);
+xt=fft(x,npoint);
 subplot(3,2,3);
 stem(yt);
 title('fourier transform of Y');
@@ -17,4 +18,9 @@ stem(xt);
 title('fourier transform of X');
 n=conv(x,y);
 subplot(3,2,5);
-plot(n);
+stem(fft(n,npoint));
+title('fourier transform of X*Y');
+subplot(3,2,6);
+temp=xt.*yt;
+stem(temp);
+title('fourier transform of X * fourier transform of Y');
