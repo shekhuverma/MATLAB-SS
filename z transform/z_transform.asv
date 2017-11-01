@@ -1,0 +1,8 @@
+clear all
+a=3;
+syms n;
+f=a^n;
+f1=ztrans(f);
+[a,b]=numden(f1);
+disp(a);
+disp(b);
